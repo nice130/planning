@@ -1,0 +1,116 @@
+@import url("http://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800");
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.side_bar__main {
+color: black;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 65px;
+  text-align: center;
+  background: #FBFBFA;
+}
+
+.side_btn {
+  position: absolute;
+  top: 15px;
+  left: 45px;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  background: #1b1b1b;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: left 0.4s ease;
+}
+
+.side_toggle {
+  display: flex;
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+}
+
+.side_btn.click{
+  left: 260px;
+}
+
+.side_btn span {
+  color: white;
+  font-size: 28px;
+  line-height: 45px;
+}
+
+.side_btn.click span:before{
+  content: '\f00d';
+}
+
+
+.side_bar {
+  position: fixed;
+  visibility: hidden;
+  width: 250px;
+  height: 100%;
+  left: -250px;
+  transition: 0.5s ease;
+}
+
+.side_bar__show {
+  visibility: visible;
+  left:0px;
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: #F1F1EF;
+  left: 0px;
+  transition: left 0.5s ease;
+}
+
+
+
+.side_bar .text {
+  margin: 30px;
+  text-decoration: none;
+  color: #F1F1EF;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 65px;
+  text-align: center;
+  background: #1e1e1e;
+}
+
+
+
+.addList {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: transform 0.4s;
+}
+
+
+.side_bottom {
+  position: fixed;
+  bottom: 0;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  width: 250px;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding:10px;
+}
+
+
+.bottom_content span {
+  color: black;
+  font-weight: 500;
+  font-size: 15px;
+  margin-left: 10px
+}
+
+
