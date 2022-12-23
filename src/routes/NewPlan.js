@@ -3,7 +3,6 @@ import SideBar from '../components/SideBar';
 import {useState} from 'react';
 function NewPlan({title,savePlan,setSavePlan}){
     const [mainSize,setMainSize] = useState(true);
-    console.log(title);
     return(
         <div>
             <SideBar width={250} setMainSize={setMainSize} mainSize={mainSize}/>

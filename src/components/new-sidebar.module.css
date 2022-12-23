@@ -27,10 +27,9 @@ color: black;
 }
 
 .side_toggle {
-  display: flex;
-  position: fixed;
-  width: 250px;
-  height: 100vh;
+  position: absolute;
+  width: 30px;
+  height: 30px;
 }
 
 .side_btn.click{
