@@ -1,7 +1,10 @@
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./new-sidebar.module.css";
 
 const SideItems = ({ savePlan, setSavePlan }) => {
+  const [addChild, setAddChild] = useState(false);
+  const [child, setChild] = useState("");
   const onAddChild = (e) => {
     const targetIdx = e.target.closest("li").dataset.index;
     savePlan[targetIdx].hasChild = true;
@@ -28,6 +31,12 @@ const SideItems = ({ savePlan, setSavePlan }) => {
   };
   return (
     <ul>
+      <li data-index='100'>
+        <Link to={`/planning`} key='100' title='Planning'>
+          <span className="fas fa-caret-right"></span>
+            Planning
+        </Link>
+      </li>
       {savePlan.map((item, pindex) => (
         <>
           <li data-index={pindex}>
@@ -45,10 +54,13 @@ const SideItems = ({ savePlan, setSavePlan }) => {
                 <>
                   <li data-index={idx} data-p-index={pindex}>
                     <Link to={`/`} key={idx} title={item.title}>
+                      {/* <span 
+          className="fas fa-caret-right" 
+          onClick={clickArrow}></span> */}
                       {item.title}
-                      <div className={styles.addList} onClick={onAddChild}>
+                      {/* <div className={styles.addList} onClick={onAddChild}>
                         +
-                      </div>
+                      </div> */}
                     </Link>
                   </li>
                 </>

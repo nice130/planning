@@ -12,7 +12,7 @@
     height: 100%;
     z-index: 99;
   }
-  .closebutton {
+  .button {
     position: relative;
     left: 260px; 
     top: 10px;
@@ -22,27 +22,11 @@
     transition: 0.4s ease;
     border: 1px solid pink;
     background-color: white;
-    border-radius: 40px;
-    color: blanchedalmond;
-    overflow: hidden;
-  }
-  .closebutton:hover{
-      color: #d4dfe6;
-  }
-  .openbutton {
-    position: relative;
-    left: 0px; 
-    top: 10px;
-    width: 40px;
-    height: 40px;
-    z-index: 99;
-    transition: 0.4s ease;
-    border: 1px solid pink;
-    background-color: white;
+    color: rgba(241, 221, 221, 0.37);
     border-radius: 40px;
     overflow: hidden;
   }
-  .openbutton:hover{
+  .button:hover{
       color: #d4dfe6;
   }
   .openBtn {

@@ -1,40 +1,59 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+// import styles from "./sidebar.module.css";
 import styles from "./new-sidebar.module.css";
-import style from "../routes/sidebar.module.css"
 import NewNote from "../routes/NewNote";
+import commCss from "../styles.css";
 import SideItems from "./SideItems";
-
-const SideBar = ({ width = 250, setMainSize, mainSize }) => {
+const SideBar = ({toggled, setToggled}) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [toggled, setToggled] = useState(false);
+  const [clicked, setClicked] = useState(false);
   const [plan, setPlan] = useState("");
   const side = useRef();
   const [savePlan, setSavePlan] = useState([]);
-  const [sidebar,setSidebar] = useState(true);
- 
+  const [toggleSave,SetToggleSave] = useState(false);
+
   const showModal = () => {
     setModalOpen(true);
   };
   const toggleSetting = () => {
-    setMainSize(true);
-    console.log(mainSize);
-    
-    setSidebar(!sidebar);
-    setToggled(!toggled);
+    if (clicked) {
+      return;
+    }
+  
+    setToggled(!toggleSave);
+    SetToggleSave(!toggleSave);
   };
  
+  const SideBarFixed = () => {
+    setClicked(!clicked);
+    setToggled(toggleSave);
+  }
   return (
     <div>
-      <button className={sidebar ? style.openbutton:style.closebutton} onClick={toggleSetting}>{sidebar ? 'O':'X'}</button>
+      <div 
+      className={styles.side_toggle} 
+      onMouseOver={toggleSetting}
+      >
+      </div>
+      
       <nav
         ref={side}
-        className={toggled ? styles.side_bar__show : styles.side_bar}
+        onMouseLeave={toggleSetting}
+        className={toggleSave ? styles.side_bar__show : styles.side_bar}
       >
+        
         <div className={styles.side_bar__main}>
-          <Link to={"/"}>PLAN LIST</Link>
+          <Link to={"/"}>PLAN LIST
+          </Link>
+          
+          <span 
+          style={clicked ? {color:'red'} : {color:'black'}}
+          className={clicked ? "fa-solid fa-thumbtack" : "fa-solid fa-thumbtack"} onClick={SideBarFixed}></span>
         </div>
-        <SideItems savePlan={savePlan} setSavePlan={setSavePlan  } />
+        
+        <SideItems savePlan={savePlan} setSavePlan={setSavePlan} />
+        
         <div className={styles.side_bottom}>
           <div className={styles.bottom_content}>
             <span className="fa-solid fa-plus"></span>

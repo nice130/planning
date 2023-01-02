@@ -12,13 +12,12 @@ const columns = {
   progress: { placeholder: "진행정도", value: "" },
 };
 
-function Home({mainSize,setMainSize}){
+function Home({toggled, setToggled}){
   const initObject = Object.keys(columns).reduce((object, value) => {
     object[value] = "";
     return object;
   }, {});
   const [val,setVal] =useState({});
-  
   const [isDetail,setIsDetail] = useState(false);
   const toggleDetail = (e) =>{
     const idx = e.target.dataset.idx;
@@ -64,7 +63,7 @@ function Home({mainSize,setMainSize}){
 
   return (
     <div className={styles.main}>
-      <div className={mainSize ?  styles.bigmain :styles.smallmain }>
+      <div className={toggled ? styles.smallmain : styles.bigmain }>
         <td id="toggle" className={isDetail ? styles.show : styles.hide}>
           <Detail props={val} isDetail={setIsDetail} />
         </td>

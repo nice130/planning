@@ -1,8 +1,8 @@
 import App from "./App";
+import SideBar from "./SideBar";
 import { useEffect, useState } from "react";
 function DefaultApp(){
     const [savePlan, setSavePlan] = useState([]);
-    const [mainSize,setMainSize] = useState(false);
     const [init, setInit] = useState(false);
     useEffect(()=>{
         setInit(true);
@@ -10,8 +10,9 @@ function DefaultApp(){
     
     return(
         <>
+        {/* <header><SideBar savePlan={savePlan} setSavePlan={setSavePlan}/></header> */}
             {init ?(
-                <App savePlan={savePlan} setSavePlan={setSavePlan} mainSize={mainSize} setMainSize={setMainSize}/>
+                <App savePlan={savePlan} setSavePlan={setSavePlan} />
                 ):(
                 "Initializing..."
             )}
